@@ -1,0 +1,24 @@
+{
+  "name": "web_server",
+  "description": "",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+
+  },
+  "override_attributes": {
+
+  },
+  "chef_type": "role",
+  "run_list": [
+    "recipe[nginx]",
+    "recipe[mysql]"
+  ],
+  "env_run_lists": {
+    "production": [
+      "recipe[nginx::confprod]"
+    ],
+    "testing": [
+      "recipe[nginx::conftest]"
+    ]
+  }
+}
